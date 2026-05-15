@@ -1,0 +1,305 @@
+@import url("https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css");
+
+:root {
+  --desktop-bg: #070907;
+  --desktop-glow: rgba(57, 255, 20, 0.08);
+  --terminal-bg: #020302;
+  --terminal-bg-deep: #000000;
+  --titlebar: #111711;
+  --titlebar-line: #263126;
+  --border: rgba(111, 255, 111, 0.2);
+  --text: #dce8d6;
+  --muted: #7f8d7d;
+  --green: #7cff7c;
+  --blue: #8ab4f8;
+  --red: #ff6f6f;
+  --yellow: #ffe680;
+  --shadow: rgba(0, 0, 0, 0.72);
+  --font: "DejaVu Sans Mono", "Cascadia Mono", "Consolas", "Menlo", "SFMono-Regular", "Roboto Mono", "Courier New", monospace;
+  --font-korean: "D2Coding", "D2 Coding", "Noto Sans Mono CJK KR", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 50% -8rem, var(--desktop-glow), transparent 28rem),
+    linear-gradient(180deg, #0b0f0b 0%, var(--desktop-bg) 62%, #020302 100%);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: clamp(14px, 2.2vw, 16px);
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+.desktop-shell {
+  width: 100vw;
+  height: 100dvh;
+  padding: clamp(10px, 2vw, 24px);
+  display: flex;
+}
+
+.terminal-window {
+  position: relative;
+  width: min(1180px, 100%);
+  height: min(800px, 100%);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--terminal-bg);
+  box-shadow: 0 28px 80px var(--shadow), inset 0 0 0 1px rgba(255,255,255,0.025);
+}
+
+.terminal-titlebar {
+  height: 34px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 11px;
+  color: #cfe8cf;
+  background: linear-gradient(180deg, #172017, var(--titlebar));
+  border-bottom: 1px solid var(--titlebar-line);
+  user-select: none;
+}
+
+.window-controls {
+  display: none;
+}
+
+.control {
+  display: none;
+}
+
+.title-icon {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(124, 255, 124, 0.64);
+}
+
+.window-title {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  text-align: left;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #dce8d6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.session-meta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+#terminal {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  padding: clamp(14px, 2.2vw, 24px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background:
+    linear-gradient(rgba(124, 255, 124, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 255, 124, 0.018) 1px, transparent 1px),
+    var(--terminal-bg-deep);
+  background-size: 100% 1.5em, 5.2rem 100%, auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.output-line {
+  min-height: 1.5em;
+}
+
+.output-grid {
+  width: 100%;
+  min-height: 1.5em;
+  margin: 0;
+  white-space: normal;
+}
+
+.ls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--ls-cell-min, 12ch), 1fr));
+  column-gap: 2.25ch;
+  row-gap: 0;
+  align-items: baseline;
+}
+
+.ls-item {
+  display: block;
+  min-width: 0;
+  min-height: 1.5em;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ko {
+  font-family: var(--font-korean);
+  letter-spacing: -0.01em;
+}
+
+.echo-row {
+  color: var(--text);
+}
+
+.echo-value,
+.password-mask {
+  flex: 1;
+  min-width: 0;
+}
+
+.directory {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.file {
+  color: var(--text);
+}
+
+.dim {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--red);
+}
+
+.success {
+  color: var(--green);
+}
+
+.warning {
+  color: var(--yellow);
+}
+
+.input-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  min-height: 1.5em;
+}
+
+.prompt {
+  flex: 0 0 auto;
+  color: var(--green);
+}
+
+.prompt .path {
+  color: var(--blue);
+}
+
+.password-prompt {
+  color: var(--yellow);
+}
+
+#cmd {
+  flex: 1;
+  min-width: 3rem;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  caret-color: var(--green);
+}
+
+#cmd::selection,
+.output-line::selection,
+.prompt::selection {
+  background: var(--green);
+  color: var(--terminal-bg-deep);
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  .desktop-shell {
+    padding: 0;
+  }
+
+  .terminal-window {
+    width: 100%;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .terminal-titlebar {
+    height: 32px;
+    padding: 0 8px;
+  }
+
+  .title-icon {
+    width: 9px;
+    height: 9px;
+  }
+
+  .window-title {
+    font-size: 11px;
+  }
+
+  .session-meta {
+    gap: 6px;
+    font-size: 10px;
+  }
+
+  #terminal {
+    padding: 12px 10px calc(84px + env(safe-area-inset-bottom));
+    background-size: 100% 1.5em, 4.4rem 100%, auto;
+  }
+
+  .input-row {
+    align-items: flex-start;
+  }
+
+  .prompt {
+    max-width: 60vw;
+    overflow-wrap: anywhere;
+  }
+
+  .ls-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--ls-cell-min, 12ch), 100%), 1fr));
+    column-gap: 1.5ch;
+  }
+}

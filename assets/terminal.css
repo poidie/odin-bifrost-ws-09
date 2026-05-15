@@ -1,0 +1,233 @@
+@import url("https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css");
+
+:root {
+  color-scheme: dark;
+  --terminal-bg-deep: #000000;
+  --text: #dce8d6;
+  --muted: #7f8d7d;
+  --green: #7cff7c;
+  --blue: #8ab4f8;
+  --red: #ff6f6f;
+  --yellow: #ffe680;
+  --font: "DejaVu Sans Mono", "Cascadia Mono", "Consolas", "Menlo", "SFMono-Regular", "Roboto Mono", "Courier New", monospace;
+  --font-korean: "D2Coding", "D2 Coding", "Noto Sans Mono CJK KR", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: var(--terminal-bg-deep);
+}
+
+html {
+  min-height: -webkit-fill-available;
+  overscroll-behavior: none;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: clamp(14px, 2.2vw, 16px);
+  line-height: 1.5;
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+.desktop-shell {
+  width: 100vw;
+  min-height: 100vh;
+  min-height: 100svh;
+  height: 100dvh;
+  background: var(--terminal-bg-deep);
+  padding: 0;
+  display: flex;
+}
+
+.terminal-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: var(--terminal-bg-deep);
+  box-shadow: none;
+}
+
+.terminal-titlebar,
+.window-controls,
+.control,
+.title-icon,
+.window-title,
+.session-meta {
+  display: none;
+}
+
+#terminal {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  padding: calc(16px + env(safe-area-inset-top)) clamp(14px, 2.2vw, 24px) calc(18px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overflow-x: hidden;
+  background:
+    linear-gradient(rgba(124, 255, 124, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 255, 124, 0.018) 1px, transparent 1px),
+    var(--terminal-bg-deep);
+  background-size: 100% 1.5em, 5.2rem 100%, auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.output-line {
+  min-height: 1.5em;
+}
+
+.output-grid {
+  width: 100%;
+  min-height: 1.5em;
+  margin: 0;
+  white-space: normal;
+}
+
+.ls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--ls-cell-min, 12ch), 1fr));
+  column-gap: 2.25ch;
+  row-gap: 0;
+  align-items: baseline;
+}
+
+.ls-item {
+  display: block;
+  min-width: 0;
+  min-height: 1.5em;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ko {
+  font-family: var(--font-korean);
+  letter-spacing: -0.01em;
+}
+
+.echo-row {
+  color: var(--text);
+}
+
+.echo-value,
+.password-mask {
+  flex: 1;
+  min-width: 0;
+}
+
+.directory {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.file {
+  color: var(--text);
+}
+
+.dim {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--red);
+}
+
+.success {
+  color: var(--green);
+}
+
+.warning {
+  color: var(--yellow);
+}
+
+.input-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  min-height: 1.5em;
+  width: 100%;
+  min-width: 0;
+}
+
+.prompt {
+  flex: 0 0 auto;
+  color: var(--green);
+  white-space: nowrap;
+}
+
+.prompt .path {
+  color: var(--blue);
+}
+
+.password-prompt {
+  color: var(--yellow);
+}
+
+#cmd {
+  flex: 1 1 auto;
+  min-width: 2rem;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  caret-color: var(--green);
+}
+
+#cmd::selection,
+.output-line::selection,
+.output-grid::selection,
+.prompt::selection {
+  background: var(--green);
+  color: var(--terminal-bg-deep);
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+
+  #terminal {
+    padding: calc(14px + env(safe-area-inset-top)) 10px calc(18px + env(safe-area-inset-bottom));
+    background-size: 100% 1.5em, 4.4rem 100%, auto;
+  }
+
+  .input-row {
+    align-items: baseline;
+    gap: 0.35rem;
+  }
+
+  .prompt {
+    max-width: none;
+    overflow-wrap: normal;
+  }
+
+  .ls-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--ls-cell-min, 12ch), 100%), 1fr));
+    column-gap: 1.5ch;
+  }
+}

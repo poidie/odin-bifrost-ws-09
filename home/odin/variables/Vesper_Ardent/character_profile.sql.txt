@@ -1,0 +1,11 @@
+INSERT INTO character_profile
+(character_name, family_data, relation_data, personality_data, trait_data, goal_data)
+VALUES
+(
+    'Vesper Ardent',
+    ARRAY['가족 같은 존재 상실'],
+    ARRAY['오래된 친우', '형제 같은 존재', '가족 같은 존재'],
+    ARRAY['상실을 품음', '자책적', '의무감이 강함', '감정을 억누름'],
+    ARRAY['요새 붕괴 생존자', '아르덴트의 길 계승자', '사명 계승자'],
+    ARRAY['아르덴트의 길 계승', '사라진 흔적을 잊지 않음']
+);

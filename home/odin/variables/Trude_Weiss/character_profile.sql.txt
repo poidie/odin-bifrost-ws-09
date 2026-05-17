@@ -1,0 +1,11 @@
+INSERT INTO character_profile
+(character_name, family_data, relation_data, personality_data, trait_data, goal_data)
+VALUES
+(
+    'Trude Weiss',
+    ARRAY[]::TEXT[],
+    ARRAY[]::TEXT[],
+    ARRAY[]::TEXT[],
+    ARRAY['미기록'],
+    ARRAY[]::TEXT[]
+);

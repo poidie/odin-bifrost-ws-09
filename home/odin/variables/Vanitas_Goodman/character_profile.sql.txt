@@ -1,0 +1,11 @@
+INSERT INTO character_profile
+(character_name, family_data, relation_data, personality_data, trait_data, goal_data)
+VALUES
+(
+    'Vanitas Goodman',
+    ARRAY['부모 병환 사망', '여동생 리리 사망', '어린 누이'],
+    ARRAY['Hugo Dias의 의형제', '전우들과 함께함'],
+    ARRAY['비장함', '헌신적', '복수심이 강함', '자존심 강함'],
+    ARRAY['월 마리아 함락 생존자', '훈련병', '복수자', '신장이 날씨에 따라 달라짐', '바니라는 별명을 싫어함'],
+    ARRAY['고향 탈환', '여동생을 고향 땅에 묻음', '인류를 위한 희생']
+);

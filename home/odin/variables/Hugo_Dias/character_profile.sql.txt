@@ -1,0 +1,11 @@
+INSERT INTO character_profile
+(character_name, family_data, relation_data, personality_data, trait_data, goal_data)
+VALUES
+(
+    'Hugo Dias',
+    ARRAY['부모 사망'],
+    ARRAY['Vanitas Goodman의 의형제'],
+    ARRAY['생존 지향적', '트라우마가 깊음', '절박함'],
+    ARRAY['벽 붕괴 생존자', '거인 습격 목격자', '2층 다락 생존자', '마을 아이들을 기억함'],
+    ARRAY['생존', '입대', '인류 최전선에서 살아남는 법 습득']
+);

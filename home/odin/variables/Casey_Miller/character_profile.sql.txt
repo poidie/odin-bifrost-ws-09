@@ -1,0 +1,11 @@
+INSERT INTO character_profile
+(character_name, family_data, relation_data, personality_data, trait_data, goal_data)
+VALUES
+(
+    'Casey Miller',
+    ARRAY[]::TEXT[],
+    ARRAY[]::TEXT[],
+    ARRAY['체념적', '소진됨', '위태로움'],
+    ARRAY['오래 버텨 온 사람', '전장으로 향하는 인물'],
+    ARRAY['죽을 이유를 찾음']
+);

@@ -1,0 +1,11 @@
+INSERT INTO character_profile
+(character_name, family_data, relation_data, personality_data, trait_data, goal_data)
+VALUES
+(
+    'Synex Edmund',
+    ARRAY['부모 사망', '동생들', '식구 일곱'],
+    ARRAY['동생들의 보호자'],
+    ARRAY['책임감 강함', '생활형 생존자', '현실적'],
+    ARRAY['피난민', '소년가장', '생계 책임자', '벽 붕괴 이후 이주자'],
+    ARRAY['생존', '식구 부양', '굴레를 끊음']
+);

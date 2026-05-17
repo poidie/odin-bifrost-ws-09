@@ -1,0 +1,11 @@
+INSERT INTO character_profile
+(character_name, family_data, relation_data, personality_data, trait_data, goal_data)
+VALUES
+(
+    'Ossia Garcia',
+    ARRAY[]::TEXT[],
+    ARRAY[]::TEXT[],
+    ARRAY['관찰자적', '회의적', '사색적'],
+    ARRAY['벽 위에서 거인을 관찰함', '평화의 의미를 의심함', '벽 밖의 구조를 상상함'],
+    ARRAY['진정한 평화의 조건 탐색', '거인 구축에 대한 의문 해소']
+);

@@ -1,0 +1,11 @@
+INSERT INTO character_profile
+(character_name, family_data, relation_data, personality_data, trait_data, goal_data)
+VALUES
+(
+    'Mikami Owens',
+    ARRAY['누이들'],
+    ARRAY['누이들의 보호자', '104기 소속'],
+    ARRAY['책임감 강함', '헌신적', '의무감이 강함', '보호자적', '비장함'],
+    ARRAY['벽 너머의 미래를 의식함', '누이들을 걱정함', '104기 집결에 응함', '부름을 사명으로 받아들임'],
+    ARRAY['누이들을 지킴', '의무를 다함', '붙잡힘 없이 전장으로 향함']
+);

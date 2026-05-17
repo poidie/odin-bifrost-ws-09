@@ -5,7 +5,7 @@ VALUES
     'Trude Weiss',
     ARRAY[]::TEXT[],
     ARRAY[]::TEXT[],
-    ARRAY[]::TEXT[],
-    ARRAY['미기록'],
-    ARRAY[]::TEXT[]
+    ARRAY['비인간적', '관념적', '순환론적', '초연함', '기괴한 신념'],
+    ARRAY['생태계와 포식 구조를 중시함', '순수한 개인성을 부정함'],
+    ARRAY['생명의 순환에 편입됨']
 );

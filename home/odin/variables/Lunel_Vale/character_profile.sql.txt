@@ -1,0 +1,11 @@
+INSERT INTO character_profile
+(character_name, family_data, relation_data, personality_data, trait_data, goal_data)
+VALUES
+(
+    'Lunel Vale',
+    ARRAY[]::TEXT[],
+    ARRAY[]::TEXT[],
+    ARRAY['분노가 많음', '직설적', '냉소적', '불공평에 민감함', '파괴 충동적'],
+    ARRAY['거인을 증오함', '세계의 불공평함을 인식함', '신에게 냉소적임', '지능보다 힘을 원함', '생존을 위해 강한 힘을 갈망함'],
+    ARRAY['거인에게 당하지 않음', '모두를 죽일 힘을 얻음', '오래 생존함']
+);
